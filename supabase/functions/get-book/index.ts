@@ -57,9 +57,9 @@ Deno.serve(async (req) => {
   }
   const query = QueryString.parse(new URL(req.url).search);
   const data = await getBook(query);
-  const profile = await checkProfile(query);
-  const userId = Number(profile?.User?.id);
-  if (data?.Book.has_book && userId === Number(USER_ID)) {
+  // const profile = await checkProfile(query);
+  // const userId = Number(profile?.User?.id);
+  if (data?.Book.has_book && data?.Item?.user_id === Number(USER_ID)) {
     const passKey = await resolvePassKey(data.Item);
     const decrypted = await decrypt(passKey, atob(data.Item.pass));
     data.Item.pass_zip = await resolvePassZip(decrypted);
