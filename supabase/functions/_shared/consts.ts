@@ -9,3 +9,4 @@ export const PASS_ZIP_ALG = Deno.env.get('PASS_ZIP_ALG') || '';
 export const PASS_ZIP_SUB = Deno.env.get('PASS_ZIP_SUB') || '';
 export const PASS_PDF_ALG = Deno.env.get('PASS_PDF_ALG') || '';
 export const PASS_PDF_SUB = Deno.env.get('PASS_PDF_SUB') || '';
+export const USER_ID = Deno.env.get('USER_ID');
