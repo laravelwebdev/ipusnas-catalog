@@ -133,5 +133,15 @@ vector_port = 54328
 # Configure one of the supported backends: `postgres`, `bigquery`.
 backend = "postgres"
 
-[functions.*]
+[functions.borrow-book]
+verify_jwt = false
+[functions.return-book]
+verify_jwt = false
+[functions.get-book]
+verify_jwt = false
+[functions.get-books]
+verify_jwt = false
+[functions.login]
+verify_jwt = false
+[functions.notifications]
 verify_jwt = false
