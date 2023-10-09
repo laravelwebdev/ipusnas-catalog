@@ -1,0 +1,11 @@
+export const CLIENT_ID = Deno.env.get('CLIENT_ID') || '';
+export const BASE_URL = Deno.env.get('BASE_URL') || '';
+export const USER_AGENT = Deno.env.get('USER_AGENT') || '';
+export const CLIENT_SECRET = Deno.env.get('CLIENT_SECRET') || '';
+export const DECRYPT_ALGO = Deno.env.get('DECRYPT_ALGO') || '';
+export const PASS_KEY_ALG = Deno.env.get('PASS_KEY_ALG') || '';
+export const PASS_KEY_SUB = Deno.env.get('PASS_KEY_SUB') || '';
+export const PASS_ZIP_ALG = Deno.env.get('PASS_ZIP_ALG') || '';
+export const PASS_ZIP_SUB = Deno.env.get('PASS_ZIP_SUB') || '';
+export const PASS_PDF_ALG = Deno.env.get('PASS_PDF_ALG') || '';
+export const PASS_PDF_SUB = Deno.env.get('PASS_PDF_SUB') || '';

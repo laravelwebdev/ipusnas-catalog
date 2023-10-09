@@ -1,0 +1,9 @@
+{
+  "name": "ipusnas-catalog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "supabase": "^1.100.1"
+  }
+}
