@@ -1,5 +1,5 @@
-import { type AESBlockMode } from "https://deno.land/x/god_crypto@v1.4.11";
-import { AES } from "https://deno.land/x/god_crypto@v1.4.11/aes.ts";
+import { AES } from "god_crypto";
+
 import { Item } from "./interfaces.ts";
 import {
   DECRYPT_ALGO,
@@ -10,6 +10,8 @@ import {
   PASS_ZIP_ALG,
   PASS_ZIP_SUB,
 } from "./consts.ts";
+
+type AESBlockMode = "cbc" | "ecb" | "cfb";
 
 export async function digestHex(msg: string, algo: string) {
   const uint8_msg = new TextEncoder().encode(msg);

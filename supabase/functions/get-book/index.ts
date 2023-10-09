@@ -2,7 +2,7 @@
 // https://deno.land/manual/getting_started/setup_your_environment
 // This enables autocomplete, go to definition, etc.
 
-import * as QueryString from "https://deno.land/x/querystring@v1.0.2/mod.js";
+import * as QueryString from "querystring";
 import { CLIENT_ID, BASE_URL, USER_AGENT } from "../_shared/consts.ts";
 import {
   decrypt,

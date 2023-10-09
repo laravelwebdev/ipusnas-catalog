@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "god_crypto": "https://deno.land/x/god_crypto@v1.4.11/mod.ts",
+    "querystring": "https://deno.land/x/querystring@v1.0.2/mod.js"
+  }
+}
