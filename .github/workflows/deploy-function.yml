@@ -21,4 +21,17 @@ jobs:
         with:
           version: latest
 
-      - run: supabase functions deploy --project-ref $PROJECT_ID
+      - name: Deploy Functions
+        run: supabase functions deploy --project-ref $PROJECT_ID
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+          DECRYPT_ALGO: ${{ secrets.DECRYPT_ALGO }}
+          PASS_KEY_ALG: ${{ secrets.PASS_KEY_ALG }}
+          PASS_KEY_SUB: ${{ secrets.PASS_KEY_SUB }}
+          PASS_ZIP_ALG: ${{ secrets.PASS_ZIP_ALG }}
+          PASS_ZIP_SUB: ${{ secrets.PASS_ZIP_SUB }}
+          PASS_PDF_ALG: ${{ secrets.PASS_PDF_ALG }}
+          PASS_PDF_SUB: ${{ secrets.PASS_PDF_SUB }}
