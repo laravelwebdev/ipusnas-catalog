@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.11.10",
     "supabase": "^1.100.1"
   }
 }

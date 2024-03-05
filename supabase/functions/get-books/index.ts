@@ -2,6 +2,7 @@
 // https://deno.land/manual/getting_started/setup_your_environment
 // This enables autocomplete, go to definition, etc.
 
+// import { createClient } from "https://esm.sh/@supabase/supabase-js";
 import * as QueryString from "querystring";
 import { CLIENT_ID, BASE_URL, USER_AGENT } from "../_shared/consts.ts";
 import { corsHeaders } from "../_shared/cors.ts";
@@ -68,6 +69,22 @@ Deno.serve(async (req) => {
   }
   const query = QueryString.parse(new URL(req.url).search);
   const data = await getBooks(query);
+  // try {
+  //   const supabase = createClient(
+  //     Deno.env.get('SUPABASE_URL') ?? '',
+  //     Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+  //     { global: { headers: { Authorization: req.headers.get('Authorization')! } } }
+  //   )
+
+  //   const { data, error } = await supabase.from('countries').insert()
+
+  //   if (error) {
+  //     throw error
+  //   }
+    
+  // } catch (error) {
+    
+  // }
   return new Response(JSON.stringify(data), {
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
