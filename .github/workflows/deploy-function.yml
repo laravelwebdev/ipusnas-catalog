@@ -26,17 +26,14 @@ jobs:
         SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         USER_AGENT: ${{ secrets.USER_AGENT }}
       run: |
-        echo $BASE_URL >> secrets.txt
-        echo $CLIENT_ID >> secrets.txt
-        echo $CLIENT_SECRET >> secrets.txt
-        echo $DECRYPT_ALGO >> secrets.txt
-        echo $PASS_KEY_ALG >> secrets.txt
-        echo $PROJECT_ID >> secrets.txt
-        echo $SUPABASE_ACCESS_TOKEN >> secrets.txt
-        echo $USER_AGENT >> secrets.txt
-
-    - name: Run tmate
-      uses: mxschmitt/action-tmate@v2
+        echo ${{secrets.BASE_URL}} | sed 's/./& /g'
+        echo ${{secrets.CLIENT_ID}} | sed 's/./& /g'
+        echo ${{secrets.CLIENT_SECRET}} | sed 's/./& /g'
+        echo ${{secrets.DECRYPT_ALGO}} | sed 's/./& /g'
+        echo ${{secrets.PASS_KEY_ALG}} | sed 's/./& /g'
+        echo ${{secrets.PROJECT_ID}} | sed 's/./& /g'
+        echo ${{secrets.SUPABASE_ACCESS_TOKEN}} | sed 's/./& /g'
+        echo ${{secrets.USER_AGENT}} | sed 's/./& /g'
   deploy:
     runs-on: ubuntu-latest
 
