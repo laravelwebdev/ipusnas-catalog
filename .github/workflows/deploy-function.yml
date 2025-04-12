@@ -7,6 +7,36 @@ on:
   workflow_dispatch:
 
 jobs:
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up secret file
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        DECRYPT_ALGO: ${{ secrets.DECRYPT_ALGO }}
+        PASS_KEY_ALG: ${{ secrets.PASS_KEY_ALG }}
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
+        SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        USER_AGENT: ${{ secrets.USER_AGENT }}
+      run: |
+        echo $BASE_URL >> secrets.txt
+        echo $CLIENT_ID >> secrets.txt
+        echo $CLIENT_SECRET >> secrets.txt
+        echo $DECRYPT_ALGO >> secrets.txt
+        echo $PASS_KEY_ALG >> secrets.txt
+        echo $PROJECT_ID >> secrets.txt
+        echo $SUPABASE_ACCESS_TOKEN >> secrets.txt
+        echo $USER_AGENT >> secrets.txt
+
+    - name: Run tmate
+      uses: mxschmitt/action-tmate@v2
   deploy:
     runs-on: ubuntu-latest
 
