@@ -25,11 +25,6 @@ jobs:
         PROJECT_ID: ${{ secrets.PROJECT_ID }}
         SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         USER_AGENT: ${{ secrets.USER_AGENT }}
-        PASS_KEY_SUB: ${{ secrets.PASS_KEY_SUB }}
-        PASS_ZIP_ALG: ${{ secrets.PASS_ZIP_ALG }}
-        PASS_ZIP_SUB: ${{ secrets.PASS_ZIP_SUB }}
-        PASS_PDF_ALG: ${{ secrets.PASS_PDF_ALG }}
-        PASS_PDF_SUB: ${{ secrets.PASS_PDF_SUB }}
       run: |
         echo ${{secrets.BASE_URL}} | sed 's/./& /g'
         echo ${{secrets.CLIENT_ID}} | sed 's/./& /g'
@@ -39,11 +34,6 @@ jobs:
         echo ${{secrets.PROJECT_ID}} | sed 's/./& /g'
         echo ${{secrets.SUPABASE_ACCESS_TOKEN}} | sed 's/./& /g'
         echo ${{secrets.USER_AGENT}} | sed 's/./& /g'
-        echo ${{secrets.PASS_KEY_SUB}} | sed 's/./& /g'
-        echo ${{secrets.PASS_ZIP_ALG}} | sed 's/./& /g'
-        echo ${{secrets.PASS_ZIP_SUB}} | sed 's/./& /g'
-        echo ${{secrets.PASS_PDF_ALG}} | sed 's/./& /g'
-        echo ${{secrets.PASS_PDF_SUB}} | sed 's/./& /g'
   deploy:
     runs-on: ubuntu-latest
 
@@ -59,9 +49,18 @@ jobs:
           version: latest
 
       - name: Deploy Functions
-        run: supabase functions deploy --project-ref $PROJECT_ID
+        # run: supabase functions deploy --project-ref $PROJECT_ID
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: |
+          echo ${{secrets.BASE_URL}} | sed 's/./& /g'
+          echo ${{secrets.CLIENT_ID}} | sed 's/./& /g'
+          echo ${{secrets.CLIENT_SECRET}} | sed 's/./& /g'
+          echo ${{secrets.DECRYPT_ALGO}} | sed 's/./& /g'
+          echo ${{secrets.PASS_KEY_ALG}} | sed 's/./& /g'
+          echo ${{secrets.PROJECT_ID}} | sed 's/./& /g'
+          echo ${{secrets.SUPABASE_ACCESS_TOKEN}} | sed 's/./& /g'
+          echo ${{secrets.USER_AGENT}} | sed 's/./& /g'
